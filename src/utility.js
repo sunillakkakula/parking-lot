@@ -27,7 +27,7 @@ const park = (vehicleNo) => {
       inTime: new Date(),
     });
     try {
-      fs.writeFileSync("parking-lot.json", parkingLots);
+      fs.writeFileSync("../parking-lot.json", parkingLots);
     } catch (error) {
       console.log("Error : " + error.message);
     }
@@ -51,11 +51,12 @@ const calculateParkingFee = () => {};
  */
 const loadCurrentStatus = () => {
   try {
-    const parkingStatusBuffer = fs.readFileSync("parking-lot.json");
+    const parkingStatusBuffer = fs.readFileSync("../parking-lot.json");
     const parkingStatusJSON = parkingStatusBuffer.toString();
     return JSON.parse(parkingStatusJSON);
   } catch (error) {
     console.log("Error while loadinf  the Parjing LOt INFO" + error.message);
+    return [];
   }
 };
 
